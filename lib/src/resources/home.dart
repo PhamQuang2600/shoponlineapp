@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoponline/src/widget/home_product.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -27,22 +28,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           style: TextStyle(
               fontSize: 16, color: Colors.black, fontWeight: FontWeight.w500),
         ),
-        actions: [
-          Container(
-            padding: EdgeInsets.only(right: 10),
-            child: Icon(
-              Icons.search,
-              color: Colors.black26,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(right: 10),
-            child: Icon(
-              Icons.shopping_cart,
-              color: Colors.black26,
-            ),
-          )
-        ],
       ),
       bottomNavigationBar: Container(
         width: double.infinity,
@@ -60,53 +45,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 icon: Icon(Icons.home),
               ),
               Tab(
-                icon: Icon(Icons.shopify),
+                icon: Icon(Icons.shopping_cart),
               ),
               Tab(
                 icon: Icon(Icons.notifications),
               ),
               Tab(
                 icon: Icon(Icons.person),
-              )
+              ),
             ]),
       ),
-      body: Container(
-        constraints: BoxConstraints.expand(),
-        width: double.infinity,
-        height: double.infinity,
-        child: TabBarView(
-          controller: _tabController,
-          children: [
-            Row(children: [
-              Expanded(
-                child: Container(
-                  color: Colors.red,
-                ),
-              )
-            ]),
-            Row(children: [
-              Expanded(
-                child: Container(
-                  color: Colors.amber,
-                ),
-              )
-            ]),
-            Row(children: [
-              Expanded(
-                child: Container(
-                  color: Colors.blue,
-                ),
-              )
-            ]),
-            Row(children: [
-              Expanded(
-                child: Container(
-                  color: Colors.green,
-                ),
-              )
-            ]),
-          ],
-        ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [HomeProduct(), Container(), Container(), Container()],
       ),
     );
   }
