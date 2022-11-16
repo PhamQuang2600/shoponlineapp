@@ -20,7 +20,7 @@ class _FeatureProductPageState extends State<FeatureProductPage> {
       body: Container(
           height: double.infinity,
           width: double.infinity,
-          padding: EdgeInsets.fromLTRB(12, 5, 0, 0),
+          padding: EdgeInsets.fromLTRB(10, 5, 0, 0),
           child: Expanded(
               child: SingleChildScrollView(
             child: Column(

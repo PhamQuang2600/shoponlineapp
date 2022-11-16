@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:shoponline/src/widget/feature_product.dart';
 import 'package:shoponline/src/widget/search.dart';
 
-class NewAchivesPage extends StatefulWidget {
-  const NewAchivesPage({super.key});
+class NewProductPage extends StatefulWidget {
+  const NewProductPage({super.key});
 
   @override
-  State<NewAchivesPage> createState() => _NewAchivesPageState();
+  State<NewProductPage> createState() => _NewProductPageState();
 }
 
-class _NewAchivesPageState extends State<NewAchivesPage> {
+class _NewProductPageState extends State<NewProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('New Achives'),
+        title: Text('New Product'),
         backgroundColor: Colors.brown,
       ),
       body: Container(

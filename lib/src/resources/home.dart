@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoponline/src/resources/cart_page.dart';
 import 'package:shoponline/src/widget/home_product.dart';
 
 class Home extends StatefulWidget {
@@ -21,14 +22,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text(
-          "ShopOnline",
-          style: TextStyle(
-              fontSize: 16, color: Colors.black, fontWeight: FontWeight.w500),
-        ),
-      ),
       bottomNavigationBar: Container(
         width: double.infinity,
         height: 50,
@@ -57,7 +50,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [HomeProduct(), Container(), Container(), Container()],
+        children: [HomeProduct(), CartPage(), Container(), Container()],
       ),
     );
   }
