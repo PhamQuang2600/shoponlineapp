@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shoponline/src/resources/cart_page.dart';
+import 'package:shoponline/src/resources/notification_page.dart';
+import 'package:shoponline/src/resources/profile_page.dart';
 import 'package:shoponline/src/widget/home_product.dart';
+import 'package:badges/badges.dart' as Badges;
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,10 +14,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   late TabController _tabController;
+  int count = 1;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
   }
@@ -38,11 +41,23 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 icon: Icon(Icons.home),
               ),
               Tab(
-                icon: Icon(Icons.shopping_cart),
-              ),
+                  icon: (count > 0)
+                      ? Badges.Badge(
+                          position: Badges.BadgePosition(start: 15, bottom: 5),
+                          child: Icon(Icons.shopping_cart),
+                          badgeContent: Text("$count"),
+                          badgeColor: Colors.red,
+                        )
+                      : Icon(Icons.shopping_cart)),
               Tab(
-                icon: Icon(Icons.notifications),
-              ),
+                  icon: (count > 0)
+                      ? Badges.Badge(
+                          position: Badges.BadgePosition(start: 15, bottom: 5),
+                          child: Icon(Icons.notifications),
+                          badgeContent: Text("$count"),
+                          badgeColor: Colors.red,
+                        )
+                      : Icon(Icons.notifications)),
               Tab(
                 icon: Icon(Icons.person),
               ),
@@ -50,7 +65,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [HomeProduct(), CartPage(), Container(), Container()],
+        children: [
+          HomeProduct(),
+          CartPage(),
+          NotificationPage(),
+          ProfilePage()
+        ],
       ),
     );
   }
