@@ -1,8 +1,10 @@
+// ignore_for_file: file_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class FireAuth {
-  FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   void signIn(String email, String pass, Function onSuccess,
       Function(String) onLoginError) {
@@ -29,7 +31,7 @@ class FireAuth {
 
   _createUser(String userId, String email, String pass, String name,
       String phone, Function onSuccess, Function(String) onSignUpError) {
-    var user = Map<String, dynamic>();
+    var user = <String, dynamic>{};
     user = {"name": name, "phone": phone};
     var refer = FirebaseDatabase.instance.ref().child("users");
     refer.child(userId).set(user).then((value) => onSuccess).catchError((err) {
@@ -37,25 +39,25 @@ class FireAuth {
     });
   }
 
-  void _onSignUpErr(String code, Function(String) onSignUpError) {
-    switch (code) {
-      case "email-already-in-use":
-        onSignUpError("Tài khoản đâ được sử dụng!");
-        break;
-      case "invalid-email":
-        onSignUpError("Tài khoản hợp lệ!");
-        break;
-      case "operation-not-allowed":
-        onSignUpError("Tài khoản không được cho phép!");
-        break;
-      case "weak-password":
-        onSignUpError("Mật khẩu yếu! Vui lòng nhập lại");
-        break;
-      default:
-        onSignUpError("Đăng kí thất bại! Vui lòng thử lại");
-        break;
-    }
-  }
+  // void _onSignUpErr(String code, Function(String) onSignUpError) {
+  //   switch (code) {
+  //     case "email-already-in-use":
+  //       onSignUpError("Tài khoản đâ được sử dụng!");
+  //       break;
+  //     case "invalid-email":
+  //       onSignUpError("Tài khoản hợp lệ!");
+  //       break;
+  //     case "operation-not-allowed":
+  //       onSignUpError("Tài khoản không được cho phép!");
+  //       break;
+  //     case "weak-password":
+  //       onSignUpError("Mật khẩu yếu! Vui lòng nhập lại");
+  //       break;
+  //     default:
+  //       onSignUpError("Đăng kí thất bại! Vui lòng thử lại");
+  //       break;
+  //   }
+  // }
 
   void _onLoginErr(String code, Function(String) onLoginError) {
     switch (code) {

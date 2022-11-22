@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:shoponline/src/resources/cart_page.dart';
@@ -11,15 +12,15 @@ class ProductDetail extends StatefulWidget {
 
 class _ProductDetailState extends State<ProductDetail> {
   bool isExpanded = false;
-  var snackBar = SnackBar(content: Text('Add to cart success!'));
+  var snackBar = const SnackBar(content: Text('Add to cart success!'));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('IPhone 13 Pro Max 128GB'),
+          title: const Text('IPhone 13 Pro Max 128GB'),
           backgroundColor: Colors.transparent,
         ),
-        bottomNavigationBar: Container(
+        bottomNavigationBar: SizedBox(
           height: 50,
           width: double.infinity,
           child: Column(
@@ -34,8 +35,8 @@ class _ProductDetailState extends State<ProductDetail> {
                       child: Container(
                           height: 50,
                           width: 205,
-                          color: Color.fromARGB(255, 7, 135, 255),
-                          child: Icon(Icons.add_shopping_cart_sharp)),
+                          color: const Color.fromARGB(255, 7, 135, 255),
+                          child: const Icon(Icons.add_shopping_cart_sharp)),
                     ),
                   ),
                   Center(
@@ -45,8 +46,8 @@ class _ProductDetailState extends State<ProductDetail> {
                       color: Colors.amber[900],
                       child: GestureDetector(
                         onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => CartPage())),
-                        child: Center(
+                            MaterialPageRoute(builder: (_) => const CartPage())),
+                        child: const Center(
                           child: Text(
                             'Buy now',
                             style: TextStyle(fontSize: 18, color: Colors.white),
@@ -69,12 +70,12 @@ class _ProductDetailState extends State<ProductDetail> {
               Container(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: 330,
                 width: double.infinity,
                 child: Carousel(
                   autoplay: false,
-                  images: [
+                  images: const [
                     AssetImage('assets_image/1.jfif'),
                     AssetImage('assets_image/1.jfif'),
                     AssetImage('assets_image/1.jfif'),
@@ -83,62 +84,62 @@ class _ProductDetailState extends State<ProductDetail> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 10, left: 10),
+                padding: const EdgeInsets.only(top: 10, left: 10),
                 height: 30,
                 width: double.infinity,
-                child: Text(
+                child: const Text(
                   'IPhone 13 Pro Max 128GB',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 10, left: 10),
+                padding: const EdgeInsets.only(top: 10, left: 10),
                 height: 40,
                 width: double.infinity,
-                child: Text(
+                child: const Text(
                   '\$ 1000.0',
                   style: TextStyle(fontSize: 18, color: Colors.redAccent),
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 height: 30,
                 width: double.infinity,
-                child: Text('\$ 1200.0',
+                child: const Text('\$ 1200.0',
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.grey,
                         decoration: TextDecoration.lineThrough)),
               ),
               Container(
-                padding: EdgeInsets.only(left: 20, bottom: 10),
+                padding: const EdgeInsets.only(left: 20, bottom: 10),
                 height: 50,
                 width: double.infinity,
                 child: Row(children: [
-                  Icon(
+                  const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.star_half,
                     color: Colors.amber,
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 5),
+                    padding: const EdgeInsets.only(left: 5),
                     height: 50,
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         '4.5',
                         style: TextStyle(fontSize: 18),
@@ -146,21 +147,19 @@ class _ProductDetailState extends State<ProductDetail> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 5, bottom: 3),
+                    padding: const EdgeInsets.only(left: 5, bottom: 3),
                     height: 40,
-                    child: Container(
-                      child: Center(
-                        child: Text(
-                          '|',
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
+                    child: const Center(
+                      child: Text(
+                        '|',
+                        style: TextStyle(fontSize: 18, color: Colors.grey),
                       ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 5),
+                    padding: const EdgeInsets.only(left: 5),
                     height: 50,
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       'Sold 12',
                       style: TextStyle(
@@ -175,16 +174,16 @@ class _ProductDetailState extends State<ProductDetail> {
                 color: Colors.grey[200],
               ),
               Container(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 height: 50,
                 child: Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(right: 5),
+                      padding: const EdgeInsets.only(right: 5),
                       height: 50,
-                      child: Icon(Icons.local_shipping_outlined),
+                      child: const Icon(Icons.local_shipping_outlined),
                     ),
-                    Center(
+                    const Center(
                         child: Text(
                       'Transport fee: \$1.0 - \$2.0',
                       style: TextStyle(
@@ -200,9 +199,9 @@ class _ProductDetailState extends State<ProductDetail> {
               ),
               Container(
                 height: 50,
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 child: Row(
-                  children: [
+                  children: const [
                     Text(
                       'Detail Product',
                       style:
@@ -220,8 +219,8 @@ class _ProductDetailState extends State<ProductDetail> {
                   padding: const EdgeInsets.all(10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
+                    children: const [
+                      SizedBox(
                         height: 50,
                         child: Text(
                           'Stock',
@@ -231,7 +230,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               fontWeight: FontWeight.w500),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: 50,
                         child: Text(
                           'Trademark',
@@ -241,7 +240,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               fontWeight: FontWeight.w500),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: 50,
                         child: Text(
                           'Model',
@@ -251,7 +250,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               fontWeight: FontWeight.w500),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: 20,
                         child: Text(
                           'Sent from',
@@ -268,8 +267,8 @@ class _ProductDetailState extends State<ProductDetail> {
                   padding: const EdgeInsets.all(10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
+                    children: const [
+                      SizedBox(
                         height: 50,
                         child: Text(
                           '100',
@@ -279,7 +278,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               fontWeight: FontWeight.w700),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: 50,
                         child: Text(
                           'Apple',
@@ -289,7 +288,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               fontWeight: FontWeight.w700),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: 50,
                         child: Text(
                           '13 Pro Max 128GB',
@@ -299,7 +298,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               fontWeight: FontWeight.w700),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: 20,
                         child: Text(
                           'HaNoi, VietNam',
@@ -318,14 +317,14 @@ class _ProductDetailState extends State<ProductDetail> {
                 color: Colors.grey[200],
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: AnimatedSize(
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   child: ConstrainedBox(
                     constraints: isExpanded
                         ? const BoxConstraints()
                         : const BoxConstraints(maxHeight: 100),
-                    child: Text(
+                    child: const Text(
                       '''iPhone 13 Pro Max 128 GB - the most anticipated super product in the second half of 2021 from Apple. The machine has a design that is not very groundbreaking when compared to its predecessor, inside this is still a product with a super beautiful screen, the refresh rate is upgraded to 120 Hz smoothly, the camera sensor has a larger size, With powerful performance and power from Apple A15 Bionic, ready to conquer any challenge with you. Top class design
 The new iPhone inherits the distinctive design from the iPhone 12 Pro Max when it has a square frame, a glass back, and an overflowing notch at the front.
 Super smooth entertainment screen with 120 Hz . refresh rate iPhone 13 Pro Max is equipped with a 6.7-inch screen with a resolution of 1284 x 2778 Pixels, using an OLED panel with Super Retina XDR technology for outstanding energy savings but still ensuring a sharp display. realistically alive.
@@ -339,7 +338,7 @@ This year's iPhone Pro Max has been upgraded to a 120 Hz refresh rate, all trans
               ),
               isExpanded
                   ? Container(
-                      padding: EdgeInsets.only(left: 20, bottom: 20),
+                      padding: const EdgeInsets.only(left: 20, bottom: 20),
                       child: GestureDetector(
                           child: const Text('Read less',
                               style: TextStyle(
@@ -357,7 +356,7 @@ This year's iPhone Pro Max has been upgraded to a 120 Hz refresh rate, all trans
                 height: 10,
                 color: Colors.grey[200],
               ),
-              Container(
+              SizedBox(
                 height: 70,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -366,46 +365,46 @@ This year's iPhone Pro Max has been upgraded to a 120 Hz refresh rate, all trans
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: EdgeInsets.only(top: 10, left: 10),
-                          child: Text(
+                          padding: const EdgeInsets.only(top: 10, left: 10),
+                          child: const Text(
                             'Product Reviews',
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w600),
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.only(left: 15),
+                          padding: const EdgeInsets.only(left: 15),
                           height: 30,
                           child: Row(children: [
-                            Icon(
+                            const Icon(
                               Icons.star,
                               color: Colors.amber,
                               size: 20,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.star,
                               color: Colors.amber,
                               size: 20,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.star,
                               color: Colors.amber,
                               size: 20,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.star,
                               color: Colors.amber,
                               size: 20,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.star_half,
                               color: Colors.amber,
                               size: 20,
                             ),
                             Container(
-                              padding: EdgeInsets.only(left: 5),
+                              padding: const EdgeInsets.only(left: 5),
                               height: 50,
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   '4.5/5',
                                   style: TextStyle(
@@ -414,9 +413,9 @@ This year's iPhone Pro Max has been upgraded to a 120 Hz refresh rate, all trans
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(left: 5),
+                              padding: const EdgeInsets.only(left: 5),
                               height: 50,
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   '(10 reviews)',
                                   style: TextStyle(
@@ -431,18 +430,18 @@ This year's iPhone Pro Max has been upgraded to a 120 Hz refresh rate, all trans
                     Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 10),
                           height: 40,
-                          child: Center(
+                          child: const Center(
                               child: Text(
                             'See All',
                             style: TextStyle(fontSize: 16, color: Colors.red),
                           )),
                         ),
                         Container(
-                          padding: EdgeInsets.only(top: 10, right: 10),
+                          padding: const EdgeInsets.only(top: 10, right: 10),
                           height: 40,
-                          child: Center(
+                          child: const Center(
                               child: Icon(
                             Icons.arrow_forward_ios_rounded,
                             color: Colors.red,
@@ -459,100 +458,94 @@ This year's iPhone Pro Max has been upgraded to a 120 Hz refresh rate, all trans
                 color: Colors.grey[200],
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          Container(
+                          const SizedBox(
                             height: 50,
                             child: CircleAvatar(
                                 backgroundImage:
                                     AssetImage('assets_image/1.jfif')),
                           ),
-                          Container(
-                            child: Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(left: 15),
-                                      width: 340,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Container(
-                                            child: Text(
-                                              'PhamQuang',
-                                              style: TextStyle(fontSize: 14),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Icon(
-                                              Icons.thumb_up_alt_rounded,
-                                              size: 16,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                          Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.only(left: 15),
+                                    width: 340,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: const [
+                                        Text(
+                                          'PhamQuang',
+                                          style: TextStyle(fontSize: 14),
+                                        ),
+                                        Icon(
+                                          Icons.thumb_up_alt_rounded,
+                                          size: 16,
+                                          color: Colors.grey,
+                                        ),
+                                      ],
                                     ),
-                                    Container(
-                                      padding: EdgeInsets.only(top: 5),
-                                      width: 320,
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.star,
-                                            size: 16,
-                                            color: Colors.amber,
-                                          ),
-                                          Icon(
-                                            Icons.star,
-                                            size: 16,
-                                            color: Colors.amber,
-                                          ),
-                                          Icon(
-                                            Icons.star,
-                                            size: 16,
-                                            color: Colors.amber,
-                                          ),
-                                          Icon(
-                                            Icons.star,
-                                            size: 16,
-                                            color: Colors.amber,
-                                          ),
-                                          Icon(
-                                            Icons.star,
-                                            size: 16,
-                                            color: Colors.amber,
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.only(top: 5),
+                                    width: 320,
+                                    child: Row(
+                                      children: const [
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: Colors.amber,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: Colors.amber,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: Colors.amber,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: Colors.amber,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 16,
+                                          color: Colors.amber,
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
                           )
                         ],
                       ),
                       Container(
-                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                         child: AnimatedSize(
-                          duration: Duration(milliseconds: 300),
+                          duration: const Duration(milliseconds: 300),
                           child: ConstrainedBox(
                             constraints: isExpanded
                                 ? const BoxConstraints()
                                 : const BoxConstraints(maxHeight: 70),
-                            child: Text(
+                            child: const Text(
                               '''Leap in battery life iPhone Pro Max marks a new turning point in battery life. With a large battery capacity combined with a new screen and power-saving Apple A15 Bionic processor, the iPhone 13 Pro Max becomes the iPhone with the best battery life ever, 2.5 hours longer than with its predecessor.
 Unfortunately, the battery capacity of the new iPhone models has improved, but their fast charging speed still only stops at 20 W over a wired connection and charges via MagSafe at up to 15 W or can be via a charger. Qi-based wire with 7.5 W output.
 Apple has constantly improved to give users the best product, iPhone 13 Pro Max 128GB retains the highlights of its predecessor, featuring improvements in configuration, battery life as well as camera and many more. What awaits you to discover.
                                   ''',
-                              style: const TextStyle(fontSize: 16),
+                              style: TextStyle(fontSize: 16),
                               softWrap: true,
                               overflow: TextOverflow.fade,
                             ),
@@ -561,7 +554,8 @@ Apple has constantly improved to give users the best product, iPhone 13 Pro Max 
                       ),
                       isExpanded
                           ? Container(
-                              padding: EdgeInsets.only(left: 20, bottom: 20),
+                              padding:
+                                  const EdgeInsets.only(left: 20, bottom: 20),
                               child: GestureDetector(
                                   child: const Text('Read less',
                                       style: TextStyle(
@@ -587,7 +581,7 @@ Apple has constantly improved to give users the best product, iPhone 13 Pro Max 
     OverlayState overlayState = Overlay.of(context);
     OverlayEntry overlayEntry = OverlayEntry(
         builder: (context) => AnimatedSize(
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
               child: Positioned(
                 height: 400,
                 width: double.infinity,
@@ -596,11 +590,10 @@ Apple has constantly improved to give users the best product, iPhone 13 Pro Max 
                   color: Colors.black,
                   child: Column(children: [
                     Row(
-                      children: [
-                        Container(
+                      children: const [
+                        SizedBox(
                           height: 50,
                           width: 50,
-                          child: Text('Hello'),
                         )
                       ],
                     )
@@ -610,7 +603,7 @@ Apple has constantly improved to give users the best product, iPhone 13 Pro Max 
             ));
 
     overlayState.insert(overlayEntry);
-    await Future.delayed(Duration(milliseconds: 2000));
+    await Future.delayed(const Duration(milliseconds: 2000));
     overlayEntry.remove();
   }
 }

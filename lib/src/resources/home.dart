@@ -3,6 +3,7 @@ import 'package:shoponline/src/resources/cart_page.dart';
 import 'package:shoponline/src/resources/notification_page.dart';
 import 'package:shoponline/src/resources/profile_page.dart';
 import 'package:shoponline/src/widget/home_product.dart';
+// ignore: library_prefixes
 import 'package:badges/badges.dart' as Badges;
 
 class Home extends StatefulWidget {
@@ -28,44 +29,46 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       bottomNavigationBar: Container(
         width: double.infinity,
         height: 50,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             border: Border(top: BorderSide(color: Colors.black26))),
         child: TabBar(
             controller: _tabController,
-            indicator: BoxDecoration(
+            indicator: const BoxDecoration(
                 border: Border(top: BorderSide(color: Colors.black54))),
             unselectedLabelColor: Colors.grey,
             labelColor: Colors.black,
             tabs: [
-              Tab(
+              const Tab(
                 icon: Icon(Icons.home),
               ),
               Tab(
                   icon: (count > 0)
                       ? Badges.Badge(
-                          position: Badges.BadgePosition(start: 15, bottom: 5),
-                          child: Icon(Icons.shopping_cart),
+                          position:
+                              const Badges.BadgePosition(start: 15, bottom: 5),
                           badgeContent: Text("$count"),
                           badgeColor: Colors.red,
+                          child: const Icon(Icons.shopping_cart),
                         )
-                      : Icon(Icons.shopping_cart)),
+                      : const Icon(Icons.shopping_cart)),
               Tab(
                   icon: (count > 0)
                       ? Badges.Badge(
-                          position: Badges.BadgePosition(start: 15, bottom: 5),
-                          child: Icon(Icons.notifications),
+                          position:
+                              const Badges.BadgePosition(start: 15, bottom: 5),
                           badgeContent: Text("$count"),
                           badgeColor: Colors.red,
+                          child: const Icon(Icons.notifications),
                         )
-                      : Icon(Icons.notifications)),
-              Tab(
+                      : const Icon(Icons.notifications)),
+              const Tab(
                 icon: Icon(Icons.person),
               ),
             ]),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
+        children: const [
           HomeProduct(),
           CartPage(),
           NotificationPage(),

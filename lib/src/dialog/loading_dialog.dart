@@ -5,18 +5,18 @@ class LoadingDiaLog {
     showDialog(
         barrierDismissible: false,
         context: context,
-        builder: (context) => new Dialog(
-              child: Container(
+        builder: (context) => Dialog(
+              child: SizedBox(
                 height: 100,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CircularProgressIndicator(),
+                      const CircularProgressIndicator(),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                         child: Text(
                           msg,
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                       )
                     ]),

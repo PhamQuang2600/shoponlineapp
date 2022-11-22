@@ -1,5 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+// ignore: library_prefixes
 import 'package:badges/badges.dart' as Badges;
+
+import '../dialog/loading_dialog.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({super.key});
@@ -10,13 +15,35 @@ class NotificationPage extends StatefulWidget {
 
 class _NotificationPageState extends State<NotificationPage> {
   @override
+  void initState() {
+    Future.delayed(
+      const Duration(milliseconds: 2),
+      () {
+        Future.delayed(const Duration(milliseconds: 2), () {
+          LoadingDiaLog.showLoadingDiaLog(context, '');
+          Future.delayed(const Duration(seconds: 2), () {
+            LoadingDiaLog.hideDiaLog(context);
+          });
+        });
+      },
+    );
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notification'),
+        title: const Text('Notification'),
         backgroundColor: Colors.grey,
       ),
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
@@ -44,25 +71,25 @@ class _NotificationPageState extends State<NotificationPage> {
                         color: Colors.amber[900],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: 80,
                       width: 290,
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: EdgeInsets.only(left: 10, top: 20),
+                              padding: const EdgeInsets.only(left: 10, top: 20),
                               height: 40,
-                              child: Text(
+                              child: const Text(
                                 'Promotion',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               height: 40,
-                              child: Text(
+                              child: const Text(
                                 'Promotion for you, it not bad, maybe you will need',
                                 style: TextStyle(fontSize: 14),
                                 softWrap: true,
@@ -71,11 +98,11 @@ class _NotificationPageState extends State<NotificationPage> {
                             ),
                           ]),
                     ),
-                    Container(
+                    SizedBox(
                         height: 20,
                         width: 20,
                         child: Badges.Badge(
-                          badgeContent: Center(
+                          badgeContent: const Center(
                             child: Text(
                               "5",
                               style: TextStyle(fontSize: 10),
@@ -83,7 +110,7 @@ class _NotificationPageState extends State<NotificationPage> {
                           ),
                           badgeColor: Colors.red,
                         )),
-                    Container(
+                    const SizedBox(
                       height: 50,
                       child: Icon(
                         Icons.navigate_next,
@@ -118,25 +145,25 @@ class _NotificationPageState extends State<NotificationPage> {
                         color: Colors.amber[900],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: 80,
                       width: 290,
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: EdgeInsets.only(left: 10, top: 20),
+                              padding: const EdgeInsets.only(left: 10, top: 20),
                               height: 40,
-                              child: Text(
+                              child: const Text(
                                 'Activities log',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               height: 40,
-                              child: Text(
+                              child: const Text(
                                 'Activity log for you, it not bad, maybe you will need',
                                 style: TextStyle(fontSize: 14),
                                 softWrap: true,
@@ -145,11 +172,11 @@ class _NotificationPageState extends State<NotificationPage> {
                             ),
                           ]),
                     ),
-                    Container(
+                    SizedBox(
                         height: 20,
                         width: 20,
                         child: Badges.Badge(
-                          badgeContent: Center(
+                          badgeContent: const Center(
                             child: Text(
                               "5",
                               style: TextStyle(fontSize: 10),
@@ -157,7 +184,7 @@ class _NotificationPageState extends State<NotificationPage> {
                           ),
                           badgeColor: Colors.red,
                         )),
-                    Container(
+                    const SizedBox(
                       height: 50,
                       child: Icon(
                         Icons.navigate_next,
@@ -174,21 +201,17 @@ class _NotificationPageState extends State<NotificationPage> {
               width: MediaQuery.of(context).size.width,
               color: Colors.grey[300],
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      child: Text(
-                        "Order update",
-                        style: TextStyle(fontSize: 16),
-                      ),
+                  children: const [
+                    Text(
+                      "Order update",
+                      style: TextStyle(fontSize: 16),
                     ),
-                    Container(
-                      child: Text(
-                        "Read All",
-                        style: TextStyle(fontSize: 16),
-                      ),
+                    Text(
+                      "Read All",
+                      style: TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
@@ -206,27 +229,27 @@ class _NotificationPageState extends State<NotificationPage> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
                           border: Border.all(width: 1, color: Colors.grey)),
-                      child: Center(child: Text("Label")),
+                      child: const Center(child: Text("Label")),
                     ),
-                    Container(
+                    SizedBox(
                       height: 80,
                       width: (MediaQuery.of(context).size.width - 70),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: EdgeInsets.only(left: 10, top: 20),
+                              padding: const EdgeInsets.only(left: 10, top: 20),
                               height: 40,
-                              child: Text(
+                              child: const Text(
                                 'Waiting payment',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               height: 40,
-                              child: Text(
+                              child: const Text(
                                 'Promotion for you, it not bad, maybe you will need. This is a example',
                                 style: TextStyle(fontSize: 14),
                                 softWrap: true,

@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:shoponline/src/dialog/loading_dialog.dart';
@@ -17,47 +18,63 @@ class HomeProduct extends StatefulWidget {
 
 class _HomeProductState extends State<HomeProduct> {
   @override
+  void initState() {
+    Future.delayed(
+      const Duration(milliseconds: 2),
+      () {
+        Future.delayed(const Duration(milliseconds: 2), () {
+          LoadingDiaLog.showLoadingDiaLog(context, '');
+          Future.delayed(const Duration(seconds: 2), () {
+            LoadingDiaLog.hideDiaLog(context);
+          });
+        });
+      },
+    );
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-      child: Container(
+      margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+      child: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: SingleChildScrollView(
           child: Column(children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Container(
+            SizedBox(
               height: 440,
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SearchProduct(),
+                  const SearchProduct(),
                   Container(
-                    padding: EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 20),
                     height: 200,
                     width: double.infinity,
                     child: Carousel(
                       autoplay: true,
                       showIndicator: false,
                       boxFit: BoxFit.fitHeight,
-                      autoplayDuration: Duration(milliseconds: 6000),
-                      images: [
+                      autoplayDuration: const Duration(milliseconds: 6000),
+                      images: const [
                         AssetImage('assets_image/1.jfif'),
                         AssetImage('assets_image/2.jfif'),
                         AssetImage('assets_image/3.jfif'),
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 70,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                      children: const [
                         Text(
                           'Categories',
                           style: TextStyle(
@@ -68,56 +85,156 @@ class _HomeProductState extends State<HomeProduct> {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 60,
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           GestureDetector(
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (_) => PhoneCategoryPage())),
-                            child: CircleAvatar(
+                            onTap: () {
+                              Future.delayed(
+                                const Duration(milliseconds: 2),
+                                () {
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    LoadingDiaLog.showLoadingDiaLog(
+                                        context, '');
+                                    Future.delayed(const Duration(seconds: 2),
+                                        () {
+                                      LoadingDiaLog.hideDiaLog(context);
+                                      Future.delayed(
+                                          const Duration(milliseconds: 2), () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (_) =>
+                                                    const PhoneCategoryPage()));
+                                      });
+                                    });
+                                  });
+                                },
+                              );
+                            },
+                            child: const CircleAvatar(
                               backgroundColor: Colors.indigoAccent,
                               maxRadius: 38,
                               child: Icon(Icons.phone_android),
                             ),
                           ),
                           GestureDetector(
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (_) => PhoneCategoryPage())),
-                            child: CircleAvatar(
+                            onTap: () {
+                              Future.delayed(
+                                const Duration(milliseconds: 2),
+                                () {
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    LoadingDiaLog.showLoadingDiaLog(
+                                        context, '');
+                                    Future.delayed(const Duration(seconds: 2),
+                                        () {
+                                      LoadingDiaLog.hideDiaLog(context);
+                                      Future.delayed(
+                                          const Duration(milliseconds: 2), () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (_) =>
+                                                    const PhoneCategoryPage()));
+                                      });
+                                    });
+                                  });
+                                },
+                              );
+                            },
+                            child: const CircleAvatar(
                               backgroundColor: Colors.blueGrey,
                               maxRadius: 38,
                               child: Icon(Icons.tablet),
                             ),
                           ),
                           GestureDetector(
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (_) => PhoneCategoryPage())),
-                            child: CircleAvatar(
+                            onTap: () {
+                              Future.delayed(
+                                const Duration(milliseconds: 2),
+                                () {
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    LoadingDiaLog.showLoadingDiaLog(
+                                        context, '');
+                                    Future.delayed(const Duration(seconds: 2),
+                                        () {
+                                      LoadingDiaLog.hideDiaLog(context);
+                                      Future.delayed(
+                                          const Duration(milliseconds: 2), () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (_) =>
+                                                    const PhoneCategoryPage()));
+                                      });
+                                    });
+                                  });
+                                },
+                              );
+                            },
+                            child: const CircleAvatar(
                               backgroundColor: Colors.amber,
                               maxRadius: 38,
                               child: Icon(Icons.laptop),
                             ),
                           ),
                           GestureDetector(
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (_) => PhoneCategoryPage())),
-                            child: CircleAvatar(
+                            onTap: () {
+                              Future.delayed(
+                                const Duration(milliseconds: 2),
+                                () {
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    LoadingDiaLog.showLoadingDiaLog(
+                                        context, '');
+                                    Future.delayed(const Duration(seconds: 2),
+                                        () {
+                                      LoadingDiaLog.hideDiaLog(context);
+                                      Future.delayed(
+                                          const Duration(milliseconds: 2), () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (_) =>
+                                                    const PhoneCategoryPage()));
+                                      });
+                                    });
+                                  });
+                                },
+                              );
+                            },
+                            child: const CircleAvatar(
                               backgroundColor: Colors.pinkAccent,
                               maxRadius: 38,
                               child: Icon(Icons.keyboard),
                             ),
                           ),
                           GestureDetector(
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (_) => PhoneCategoryPage())),
-                            child: CircleAvatar(
+                            onTap: () {
+                              Future.delayed(
+                                const Duration(milliseconds: 2),
+                                () {
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    LoadingDiaLog.showLoadingDiaLog(
+                                        context, '');
+                                    Future.delayed(const Duration(seconds: 2),
+                                        () {
+                                      LoadingDiaLog.hideDiaLog(context);
+                                      Future.delayed(
+                                          const Duration(milliseconds: 2), () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (_) =>
+                                                    const PhoneCategoryPage()));
+                                      });
+                                    });
+                                  });
+                                },
+                              );
+                            },
+                            child: const CircleAvatar(
                               backgroundColor: Colors.lightGreenAccent,
                               maxRadius: 38,
                               child: Icon(Icons.headphones),
@@ -130,17 +247,36 @@ class _HomeProductState extends State<HomeProduct> {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "Featured",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           GestureDetector(
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        FeatureProductPage())),
-                            child: Text("See All",
+                            onTap: () {
+                              Future.delayed(
+                                const Duration(milliseconds: 2),
+                                () {
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    LoadingDiaLog.showLoadingDiaLog(
+                                        context, '');
+                                    Future.delayed(const Duration(seconds: 2),
+                                        () {
+                                      LoadingDiaLog.hideDiaLog(context);
+                                      Future.delayed(
+                                          const Duration(milliseconds: 2), () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (_) =>
+                                                    const FeatureProductPage()));
+                                      });
+                                    });
+                                  });
+                                },
+                              );
+                            },
+                            child: const Text("See All",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold)),
                           )
@@ -149,7 +285,7 @@ class _HomeProductState extends State<HomeProduct> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 300,
               width: double.infinity,
               child: ListView.builder(
@@ -159,10 +295,29 @@ class _HomeProductState extends State<HomeProduct> {
                   return Row(
                     children: [
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -170,10 +325,29 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -181,10 +355,29 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -192,10 +385,29 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -203,10 +415,29 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -218,7 +449,7 @@ class _HomeProductState extends State<HomeProduct> {
                 },
               ),
             ),
-            Container(
+            SizedBox(
               height: 50,
               width: double.infinity,
               child: Column(
@@ -229,19 +460,36 @@ class _HomeProductState extends State<HomeProduct> {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "New Product",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => NewProductPage()));
+                              Future.delayed(
+                                const Duration(milliseconds: 2),
+                                () {
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    LoadingDiaLog.showLoadingDiaLog(
+                                        context, '');
+                                    Future.delayed(const Duration(seconds: 2),
+                                        () {
+                                      LoadingDiaLog.hideDiaLog(context);
+                                      Future.delayed(
+                                          const Duration(milliseconds: 2), () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (_) =>
+                                                    const NewProductPage()));
+                                      });
+                                    });
+                                  });
+                                },
+                              );
                             },
-                            child: Text("See All",
+                            child: const Text("See All",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold)),
                           )
@@ -250,7 +498,7 @@ class _HomeProductState extends State<HomeProduct> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 300,
               width: double.infinity,
               child: ListView.builder(
@@ -260,10 +508,29 @@ class _HomeProductState extends State<HomeProduct> {
                   return Row(
                     children: [
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -271,10 +538,29 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -282,10 +568,29 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -293,10 +598,29 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',
@@ -304,10 +628,29 @@ class _HomeProductState extends State<HomeProduct> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => DetailProduct())),
-                        child: Card(
-                          child: Container(
+                        onTap: () {
+                          Future.delayed(
+                            const Duration(milliseconds: 2),
+                            () {
+                              Future.delayed(const Duration(milliseconds: 2),
+                                  () {
+                                LoadingDiaLog.showLoadingDiaLog(context, '');
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  LoadingDiaLog.hideDiaLog(context);
+                                  Future.delayed(
+                                      const Duration(milliseconds: 2), () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const DetailProduct()));
+                                  });
+                                });
+                              });
+                            },
+                          );
+                        },
+                        child: const Card(
+                          child: SizedBox(
                               height: 240,
                               width: 170,
                               child: FeatureProduct('assets_image/1.jfif',

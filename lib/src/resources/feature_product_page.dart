@@ -14,22 +14,22 @@ class _FeatureProductPageState extends State<FeatureProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Feature'),
+        title: const Text('Featured'),
         backgroundColor: Colors.brown,
       ),
       body: Container(
           height: double.infinity,
           width: double.infinity,
-          padding: EdgeInsets.fromLTRB(10, 5, 0, 0),
+          padding: const EdgeInsets.fromLTRB(10, 5, 0, 0),
           child: Expanded(
               child: SingleChildScrollView(
             child: Column(
               children: [
                 Container(
-                    padding: EdgeInsets.only(right: 12, bottom: 5),
-                    child: SearchProduct()),
+                    padding: const EdgeInsets.only(right: 12, bottom: 5),
+                    child: const SearchProduct()),
                 Row(
-                  children: [
+                  children: const [
                     Card(
                         child: FeatureProduct(
                             'assets_image/1.jfif', 'Xiaomi Note 10s', 50)),
@@ -39,7 +39,7 @@ class _FeatureProductPageState extends State<FeatureProductPage> {
                   ],
                 ),
                 Row(
-                  children: [
+                  children: const [
                     Card(
                         child: FeatureProduct(
                             'assets_image/1.jfif', 'Xiaomi Note 10s', 50)),
@@ -49,7 +49,7 @@ class _FeatureProductPageState extends State<FeatureProductPage> {
                   ],
                 ),
                 Row(
-                  children: [
+                  children: const [
                     Card(
                         child: FeatureProduct(
                             'assets_image/1.jfif', 'Xiaomi Note 10s', 50)),
@@ -59,7 +59,7 @@ class _FeatureProductPageState extends State<FeatureProductPage> {
                   ],
                 ),
                 Row(
-                  children: [
+                  children: const [
                     Card(
                         child: FeatureProduct(
                             'assets_image/1.jfif', 'Xiaomi Note 10s', 50)),
