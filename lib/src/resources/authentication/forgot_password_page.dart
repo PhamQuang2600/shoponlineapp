@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:shoponline/src/dialog/loading_dialog.dart';
-import 'package:shoponline/src/resources/login_page.dart';
+import 'package:shoponline/src/resources/authentication/login_page.dart';
 
 class ForgtPassPage extends StatefulWidget {
   const ForgtPassPage({super.key});

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
-class FeatureProduct extends StatefulWidget {
-  final String image;
-  final String name;
-  final double price;
-  const FeatureProduct(this.image, this.name, this.price, {super.key});
+class FeatureProduct extends StatelessWidget {
+  int productId;
+  String image;
+  String name;
+  double price;
+  FeatureProduct(this.productId, this.image, this.name, this.price,
+      {super.key});
 
-  @override
-  State<FeatureProduct> createState() => _FeatureProductState();
-}
-
-class _FeatureProductState extends State<FeatureProduct> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,22 +18,24 @@ class _FeatureProductState extends State<FeatureProduct> {
         child: Column(
           children: [
             Container(
-              height: 180,
+              height: 148,
               width: 160,
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(widget.image)),
+                image:
+                    DecorationImage(image: AssetImage('assets_image/$image')),
               ),
             ),
             Container(
               padding: const EdgeInsets.only(bottom: 5, left: 5, right: 5),
               child: Text(
-                widget.name,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                name,
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
             ),
             Container(
               padding: const EdgeInsets.only(top: 5),
-              child: Text('\$${widget.price}',
+              child: Text('\$$price',
                   style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,

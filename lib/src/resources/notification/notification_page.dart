@@ -1,10 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 // ignore: library_prefixes
 import 'package:badges/badges.dart' as Badges;
+import 'package:shoponline/src/resources/notification/activity_log_page.dart';
+import 'package:shoponline/src/resources/notification/promotion_notification_page.dart';
 
-import '../dialog/loading_dialog.dart';
+import '../../dialog/loading_dialog.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({super.key});
@@ -15,23 +15,6 @@ class NotificationPage extends StatefulWidget {
 
 class _NotificationPageState extends State<NotificationPage> {
   @override
-  void initState() {
-    Future.delayed(
-      const Duration(milliseconds: 2),
-      () {
-        Future.delayed(const Duration(milliseconds: 2), () {
-          LoadingDiaLog.showLoadingDiaLog(context, '');
-          Future.delayed(const Duration(seconds: 2), () {
-            LoadingDiaLog.hideDiaLog(context);
-          });
-        });
-      },
-    );
-
-    super.initState();
-  }
-
-  @override
   void dispose() {
     super.dispose();
   }
@@ -40,6 +23,7 @@ class _NotificationPageState extends State<NotificationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Notification'),
         backgroundColor: Colors.grey,
       ),
@@ -71,32 +55,46 @@ class _NotificationPageState extends State<NotificationPage> {
                         color: Colors.amber[900],
                       ),
                     ),
-                    SizedBox(
-                      height: 80,
-                      width: 290,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.only(left: 10, top: 20),
-                              height: 40,
-                              child: const Text(
-                                'Promotion',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: () {
+                        Future.delayed(const Duration(milliseconds: 2), () {
+                          LoadingDiaLog.showLoadingDiaLog(context, '');
+                          Future.delayed(const Duration(seconds: 2), () {
+                            LoadingDiaLog.hideDiaLog(context);
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => const PromotionNotification()));
+                          });
+                        });
+                      },
+                      child: SizedBox(
+                        height: 80,
+                        width: 290,
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.only(left: 10, top: 20),
+                                height: 40,
+                                child: const Text(
+                                  'Promotion',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(left: 10),
-                              height: 40,
-                              child: const Text(
-                                'Promotion for you, it not bad, maybe you will need',
-                                style: TextStyle(fontSize: 14),
-                                softWrap: true,
-                                overflow: TextOverflow.ellipsis,
+                              Container(
+                                padding: const EdgeInsets.only(left: 10),
+                                height: 40,
+                                child: const Text(
+                                  'Promotion for you, it not bad, maybe you will need',
+                                  style: TextStyle(fontSize: 14),
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
-                            ),
-                          ]),
+                            ]),
+                      ),
                     ),
                     SizedBox(
                         height: 20,
@@ -128,7 +126,16 @@ class _NotificationPageState extends State<NotificationPage> {
               color: Colors.grey[300],
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Future.delayed(const Duration(milliseconds: 2), () {
+                  LoadingDiaLog.showLoadingDiaLog(context, '');
+                  Future.delayed(const Duration(seconds: 2), () {
+                    LoadingDiaLog.hideDiaLog(context);
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const ActivityLog()));
+                  });
+                });
+              },
               child: Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: Row(

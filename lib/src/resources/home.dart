@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shoponline/src/resources/cart_page.dart';
-import 'package:shoponline/src/resources/notification_page.dart';
-import 'package:shoponline/src/resources/profile_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shoponline/bloc/cart/cart_bloc.dart';
+import 'package:shoponline/bloc/shop_event.dart';
+import 'package:shoponline/bloc/shop_states.dart';
+import 'package:shoponline/src/resources/cart/cart_page.dart';
+import 'package:shoponline/src/resources/notification/notification_page.dart';
+import 'package:shoponline/src/resources/authentication/profile_page.dart';
 import 'package:shoponline/src/widget/home_product.dart';
 // ignore: library_prefixes
 import 'package:badges/badges.dart' as Badges;
@@ -15,12 +19,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   late TabController _tabController;
-  int count = 1;
+  GetAllCartBloc? getCart;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
+    getCart = BlocProvider.of<GetAllCartBloc>(context);
+    getCart!.add(GetAllCartEvent());
   }
 
   @override
@@ -42,25 +48,36 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 icon: Icon(Icons.home),
               ),
               Tab(
-                  icon: (count > 0)
+                  icon: BlocListener<GetAllCartBloc, ShopState>(
+                      listener: (context, state) {
+                if (state is GetAllCartLoadingState) {
+                } else if (state is GetAllCartErrorState) {
+                  Center(
+                    child: Text(state.message),
+                  );
+                }
+              }, child: BlocBuilder<GetAllCartBloc, ShopState>(
+                builder: (context, state) {
+                  if (state is GetAllCartLoadingState) {}
+                  return (state is GetAllCartLoadedState)
                       ? Badges.Badge(
                           position:
                               const Badges.BadgePosition(start: 15, bottom: 5),
-                          badgeContent: Text("$count"),
+                          badgeContent:
+                              Text(state.getAllCart.length.toString()),
                           badgeColor: Colors.red,
                           child: const Icon(Icons.shopping_cart),
                         )
-                      : const Icon(Icons.shopping_cart)),
+                      : const Icon(Icons.shopping_cart);
+                },
+              ))),
               Tab(
-                  icon: (count > 0)
-                      ? Badges.Badge(
-                          position:
-                              const Badges.BadgePosition(start: 15, bottom: 5),
-                          badgeContent: Text("$count"),
-                          badgeColor: Colors.red,
-                          child: const Icon(Icons.notifications),
-                        )
-                      : const Icon(Icons.notifications)),
+                  icon: Badges.Badge(
+                position: const Badges.BadgePosition(start: 15, bottom: 5),
+                badgeContent: const Text("1"),
+                badgeColor: Colors.red,
+                child: const Icon(Icons.notifications),
+              )),
               const Tab(
                 icon: Icon(Icons.person),
               ),
