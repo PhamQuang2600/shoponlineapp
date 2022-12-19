@@ -1,16 +1,18 @@
 # shoponline
 
-A new Flutter project.
+Project ShopOnlineApp basic
 
-## Getting Started
+## Technology
+UI: Flutter
+BE: Asp.net core 6.0
+Data: SQL Server 2019
+### Getting Started
+flutter pub get
+account: PhamQuang
+password:quangpham2k
+#### Contribute
+Api: https://github.com/PhamQuang2600/ShopOnlineApi-Flutter.git
+UI: https://github.com/PhamQuang2600/shoponlineapp.git
+Sql: lib/Sql bak/
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
